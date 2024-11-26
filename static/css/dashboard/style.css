@@ -1,0 +1,192 @@
+/* Basic Styles */
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+/* Navbar Styles */
+.main-menu {
+  background-color: #4b3d8c; /* Purple color */
+  color: white;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 15px 0 0 15px;
+}
+
+.main-menu h1 {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.main-menu li {
+  margin-bottom: 15px;
+}
+
+.main-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.main-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+}
+
+.main-menu .active a {
+  background-color: #ff7f50;
+}
+
+/* Content Layout */
+.content {
+  margin-left: 270px; /* Space for the sidebar */
+  padding: 20px;
+}
+
+/* Left Content */
+.left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 70%;
+}
+
+.food-waste-tracking, .food-recovery {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.food-waste-tracking h1, .food-recovery h1 {
+  font-size: 1.6rem;
+  color: #4b3d8c;
+}
+
+.tracking-item, .recovery-item {
+  margin-bottom: 15px;
+}
+
+.tracking-item h3, .recovery-item h3 {
+  font-weight: bold;
+  color: #4b3d8c;
+}
+
+/* Right Content */
+.right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 28%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4b3d8c;
+}
+
+.user-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #4b3d8c;
+}
+
+.food-waste-summary, .active-calories {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.food-waste-summary h1, .active-calories h1 {
+  font-size: 1.6rem;
+  color: #4b3d8c;
+}
+
+.summary-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.total-food-wasted, .total-food-donated {
+  width: 48%;
+}
+
+.total-food-wasted h2, .total-food-donated h2 {
+  font-size: 1.2rem;
+  color: #4b3d8c;
+}
+
+.active-engagement-container {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f9;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.circle h2 {
+  font-size: 1.5rem;
+  color: #4b3d8c;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .main-menu {
+      width: 200px;
+  }
+
+  .content {
+      margin-left: 220px;
+  }
+
+  .left-content, .right-content {
+      width: 100%;
+  }
+
+  .summary-container {
+      flex-direction: column;
+  }
+
+  .total-food-wasted, .total-food-donated {
+      width: 100%;
+  }
+}

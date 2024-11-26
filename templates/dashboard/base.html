@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Waste Management Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard/style.css' %}">
+</head>
+<body>
+  <main>
+    <nav class="main-menu"> 
+      <h1>Food Waste Management</h1>
+      <ul>
+        <li class="nav-item {% if page == 'home' %}active{% endif %}">
+          <a href="{% url 'home' %}">
+            <i class="fa fa -house nav-icon"></i>
+            <span class="nav-text">Home</span>
+          </a>
+        </li>
+
+        <li class="nav-item {% if page == 'profile' %}active{% endif %}">
+          <a href="{% url 'profile' %}">
+            <i class="fa fa-user nav-icon"></i>
+            <span class="nav-text">Profile</span>
+          </a>
+        </li>
+
+        <li class="nav-item {% if page == 'food_waste_reports' %}active{% endif %}">
+          <a href="{% url 'food_waste_reports' %}">
+            <i class="fa fa-recycle nav-icon"></i>
+            <span class="nav-text">Food Waste Reports</span>
+          </a>
+        </li>
+
+        <li class="nav-item {% if page == 'food_recovery' %}active{% endif %}">
+          <a href="{% url 'food_recovery' %}">
+            <i class="fa fa-hand-holding nav-icon"></i>
+            <span class="nav-text">Food Recovery</span>
+          </a>
+        </li>
+
+        <li class="nav-item {% if page == 'settings' %}active{% endif %}">
+          <a href="{% url 'settings' %}">
+            <i class="fa fa-sliders nav-icon"></i>
+            <span class="nav-text">Settings</span>
+          </a>  
+        </li>
+      </ul>
+    </nav>
+
+    <section class="content">
+      <div class="left-content">
+        <div class="food-waste-tracking">
+          <h1>Food Waste Tracking</h1>
+          <div class="tracking-container">
+            {% for report in food_waste_reports %}
+              <div class="tracking-item">
+                <h3>{{ report.food_type }}</h3>
+                <p>Amount Wasted: {{ report.waste_amount }} grams</p>
+                <p>Date: {{ report.report_date }}</p>
+                <p>Status: {% if report.is_recycled %}Recycled{% else %}Not Recycled{% endif %}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="food-recovery">
+          <h1>Food Recovery Efforts</h1>
+          <div class="recovery-container">
+            {% for recovery in food_recovery_efforts %}
+              <div class="recovery-item">
+                <h3>Food Donated: {{ recovery.food_donated }} grams</h3>
+                <p>Recovery Date: {{ recovery.recovery_date }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="right-content">
+        <div class="user-info">
+          <h4>{{ user.name }}</h4>
+          <img src="{{ user.profile_picture }}" alt="user" />
+        </div> -->
+
+        <div class="food-waste-summary">
+          <h1>Food Waste Summary</h1>
+          <div class="summary-container">
+            <div class="total-food-wasted">
+              <h2>Total Food Wasted</h2 >
+              <p>{{ user.userprofile.total_food_wasted }} grams</p>
+            </div>
+            <div class="total-food-donated">
+              <h2>Total Food Donated</h2>
+              <p>{{ user.userprofile.total_food_donated }} grams</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="active-calories">
+          <h1>Active Engagement</h1>
+          <div class="active-engagement-container">
+            <div class="box">
+              <div class="circle">
+                <h2>{{ active_engagement_percentage }}<small>%</small></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="{% static 'js/dashboard/scripts.js' %}"></script>
+</body>
+</html>
